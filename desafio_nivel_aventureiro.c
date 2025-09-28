@@ -1,16 +1,16 @@
 
 /**
- * Enunciado do desafio:
- * Criar um programa em C que permita ao usuário inserir os dados de duas cartas do Super Trunfo. 
- * Para cada carta, o usuário deverá fornecer as seguintes informações:
- * Estado: Uma letra de 'A' a 'H' (representando um dos oito estados). Tipo: char
- * Código da Carta: A letra do estado seguida de um número de 01 a 04 (ex: A01, B03). Tipo: char[] (um array de caracteres, ou string)
- * Nome da Cidade: O nome da cidade. Tipo: char[] (string)
- * População: O número de habitantes da cidade. Tipo: int
- * Área (em km²): A área da cidade em quilômetros quadrados. Tipo: float
- * PIB: O Produto Interno Bruto da cidade. Tipo: float
- * Número de Pontos Turísticos: A quantidade de pontos turísticos na cidade. Tipo: int
+ * 1) Calcular a Densidade Populacional: Divida a população da cidade pela sua área. O resultado será a densidade populacional, 
+ * que representa o número de habitantes por quilômetro quadrado. Armazene esse valor em uma variável do tipo float.
+ * 
+ * 2) Calcular o PIB per Capita: Divida o PIB da cidade pela sua população. O resultado será o PIB per capita, que indica a riqueza média por pessoa na cidade.
+ *  Armazene esse valor em uma variável do tipo float.
+ * 
+ * 3) Exibir os Resultados: Além de exibir as informações lidas do usuário (como no nível básico),
+ * seu programa também deve exibir a densidade populacional e o PIB per capita calculados para cada cidade.
+ * Formate os valores de ponto flutuante com duas casas decimais.
  */
+
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -24,6 +24,9 @@ int main(){
     float area_c01;
     float pib_c01;
     int pontosTuristicos_c01;
+    float densidadePopulacional_c01;
+    float PIBperCapita_c01;
+
 
     // Variáveis da segunda carta
     char estado_UF_c02;
@@ -32,7 +35,9 @@ int main(){
     int populacao_c02;
     float area_c02;
     float pib_c02;
-    int pontosTuristicos_c02;       
+    int pontosTuristicos_c02;
+    float densidadePopulacional_c02;
+    float PIBperCapita_c02;  
 
     printf("\n--- Criando as Cartas do Super Trunfo ---\n");
 
@@ -59,6 +64,9 @@ int main(){
     printf("Quantidade de pontos turisticos: ");
     scanf(" %d", &pontosTuristicos_c01);
 
+    densidadePopulacional_c01 = (populacao_c01/area_c01);
+    PIBperCapita_c01 = (pib_c01/populacao_c01);
+
     // --- ENTRADA DE DADOS DA SEGUNDA CARTA ---
     printf("\nInforme os dados da segunda carta:\n");
     printf("Estado UF (A-H): ");
@@ -82,6 +90,9 @@ int main(){
     printf("Quantidade de pontos turisticos: ");
     scanf(" %d", &pontosTuristicos_c02);
 
+    densidadePopulacional_c02 = (populacao_c02/area_c02);
+    PIBperCapita_c02 = (pib_c02/populacao_c02); 
+
     // Limpa a tela para uma exibição mais limpa no terminal
     #ifdef _WIN32
         system("cls");
@@ -98,6 +109,8 @@ int main(){
     printf("Area em km²: %.2f\n", area_c01);
     printf("PIB em bilhoes de reais: %.2f\n", pib_c01);
     printf("Numero de pontos turisticos: %d\n", pontosTuristicos_c01);
+    printf("Densidade Populacional %.2f\n", densidadePopulacional_c01);
+    printf("PIB per Capita %.2f\n", PIBperCapita_c01);
 
      // --- EXIBIÇÃO DA SEGUNDA CARTA ---
     printf("\nCarta: 2\n");
@@ -107,9 +120,9 @@ int main(){
     printf("Populacao: %d\n", populacao_c02);
     printf("Area em km²: %.2f\n", area_c02);
     printf("PIB em bilhoes de reais: %.2f\n", pib_c02);
-    printf("Numero de pontos turisticos: %d\n\n", pontosTuristicos_c02);
-
-    
+    printf("Numero de pontos turisticos: %d\n", pontosTuristicos_c02);
+    printf("Densidade Populacional %.2f\n", densidadePopulacional_c02);
+    printf("PIB per Capita %.2f\n\n", PIBperCapita_c02);
   
     return 0;
 }
